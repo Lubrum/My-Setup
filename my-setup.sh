@@ -147,6 +147,51 @@ sudo snap install shotcut --classic;
 
 echo 'Installing ShotWell (snap) (image editor)';
 sudo snap install shotwell-adam --edge;
+#error: The publisher of snap "shotwell-adam" has indicated that they do not
+#       consider this revision to be of production quality and that it is only
+#       meant for development or testing at this point. As a consequence this
+#       snap will not refresh automatically and may perform arbitrary system
+#       changes outside of the security sandbox snaps are generally confined to,
+#       which may put your system at risk.
+
+#       If you understand and want to proceed repeat the command including
+#       --devmode; if instead you want to install the snap forcing it into
+#       strict confinement repeat the command including --jailmode.
 
 echo 'Installing kolourpaint (an alternative for known paint from Windows';
 sudo apt install kolourpaint;
+
+echo 'Installing Intellij-idea-community (snap)';
+sudo snap install intellij-idea-community --classic;
+
+echo 'Installing Nodejs';
+sudo apt-get install nodejs
+
+echo 'Installing nethogs (for inspecting live tcp and udp connections)';
+sudo apt-get install nethogs
+
+echo 'Installing rvm (ruby version manager)';
+sudo apt-get install rvm
+
+echo 'Installing Heroku';
+sudo snap install --classic heroku
+
+echo 'Installing useful libraries for frontend development (react-router-dom, react-dom, axios, react-leaflet, react-select, react-toastify)'
+npm install react-router-dom
+npm install @types/react-router-dom
+npm install axios
+npm install react react-dom leaflet
+npm install react-leaflet
+npm install -D @types/leaflet
+npm install react-select @types/react-select
+npm install --save react-toastify
+
+echo 'Installing useful libraries for mobile development with react native (expo-cli, react-native libraries, dayjs, intl)'
+npm install --global expo-cli
+expo install @react-navigation/stack @react-native-community/masked-view react-native-screens react-native-gesture-handler @react-navigation/native expo-app-loading @expo-google-fonts/open-sans expo-font
+npm install dayjs --save
+npm install Intl
+npm install intl
+
+echo 'Installing Avocado, useful library for reducing .xml path size (generally used in mobile resources)'
+npm install -g avocado
