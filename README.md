@@ -1,10 +1,12 @@
 # Summary
 
-This is my setup used for Java and R programming. With time I will extend it.
+A setup used for Java, R and basic web programming. 
+
+With time I will extend it.
 
 # Motivation
 
-Automating installation process when something went wrong with my OS, or new machine, or container.
+Automated installation process in case that something goes wrong with your OS, machine, or container.
 
 # Tools 
 
