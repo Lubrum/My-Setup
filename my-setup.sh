@@ -323,12 +323,12 @@ echo '                                              ' &&
 echo '----------------------------------------------' &&
 sudo apt-get -y install nethogs &&
 
-echo '----------------------------------------------' &&
-echo '                                              ' &&
-echo 'Installing rvm (ruby version manager)' &&
-echo '                                              ' &&
-echo '----------------------------------------------' &&
-sudo apt-get -y install rvm &&
+#echo '----------------------------------------------' &&
+#echo '                                              ' &&
+#echo 'Installing rvm (ruby version manager)' && (Too old, do not worth it)
+#echo '                                              ' &&
+#echo '----------------------------------------------' &&
+#sudo apt-get -y install rvm &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
