@@ -300,7 +300,7 @@ echo '                                              ' &&
 echo 'Installing kolourpaint (an alternative for known paint from Windows' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo apt install kolourpaint &&
+sudo apt-get -y install kolourpaint &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -314,21 +314,21 @@ echo '                                              ' &&
 echo 'Installing Nodejs' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo apt-get install nodejs &&
+sudo apt-get -y install nodejs &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
 echo 'Installing nethogs (for inspecting live tcp and udp connections)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo apt-get install nethogs &&
+sudo apt-get -y install nethogs &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
 echo 'Installing rvm (ruby version manager)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo apt-get install rvm &&
+sudo apt-get -y install rvm &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
