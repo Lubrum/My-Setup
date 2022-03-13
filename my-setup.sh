@@ -37,13 +37,22 @@ git config --global user.email "$git_user_email" &&
 ################ For R development ################
 echo '----------------------------------------------' &&
 echo '                                              ' &&
-echo 'installing R 4.0 (Ubuntu 18.04.4 LTS - Bionic Beaver)' &&
+echo 'installing R 4.0 (any ubuntu version)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/' &&
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 &&
-sudo apt update &&
-sudo apt install r-base r-base-core r-recommended r-base-dev -y &&
+
+# update indices
+sudo apt update -qq &&
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr &&
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc &&
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" &&
+sudo apt install --no-install-recommends r-base -y &&
+#sudo apt install r-base r-base-core r-recommended r-base-dev -y &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -176,9 +185,17 @@ echo 'Installing postgresql-11' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
 #sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/lsb_release -cs-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' &&
-sudo apt update &&
-sudo apt-get -y install postgresql postgresql-contrib &&
+#sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/lsb_release -cs-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' &&
+#sudo apt update &&
+#sudo apt-get -y install postgresql postgresql-contrib &&
+sudo apt install postgresql postgresql-contrib &&
+
+echo '----------------------------------------------' &&
+echo '                                              ' &&
+echo 'Installing curl' &&
+echo '                                              ' &&
+echo '----------------------------------------------' &&
+sudo apt install curl -y &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -318,6 +335,13 @@ sudo apt-get -y install nodejs &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
+echo 'Installing npm' &&
+echo '                                              ' &&
+echo '----------------------------------------------' &&
+sudo apt-get -y install npm &&
+
+echo '----------------------------------------------' &&
+echo '                                              ' &&
 echo 'Installing nethogs (for inspecting live tcp and udp connections)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
@@ -356,18 +380,17 @@ echo '                                              ' &&
 echo 'Installing useful libraries for mobile development with react native (expo-cli, react-native libraries, dayjs, intl)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-npm install --global expo-cli &&
-expo install @react-navigation/stack @react-native-community/masked-view react-native-screens react-native-gesture-handler @react-navigation/native expo-app-loading @expo-google-fonts/open-sans expo-font
-npm install dayjs --save
-npm install Intl
-npm install intl
+sudo npm install --global expo-cli -y &&
+sudo expo install @react-navigation/stack @react-native-community/masked-view react-native-screens react-native-gesture-handler @react-navigation/native expo-app-loading @expo-google-fonts/open-sans expo-font -y &&
+sudo npm install dayjs --save -y &&
+sudo npm install intl -y &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
 echo 'Installing Avocado, useful library for reducing .xml path size (generally used in mobile resources)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-npm install -g avocado
+npm install -g avocado &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -378,4 +401,4 @@ sudo apt update &&
 sudo apt install software-properties-common apt-transport-https wget &&
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - &&
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" &&
-sudo apt install code
+sudo apt install code -y
