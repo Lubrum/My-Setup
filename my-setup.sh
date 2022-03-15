@@ -188,7 +188,7 @@ echo '----------------------------------------------' &&
 #sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/lsb_release -cs-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' &&
 #sudo apt update &&
 #sudo apt-get -y install postgresql postgresql-contrib &&
-sudo apt install postgresql postgresql-contrib &&
+sudo apt install postgresql postgresql-contrib -y &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
