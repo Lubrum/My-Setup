@@ -128,7 +128,7 @@ echo '                                              ' &&
 echo 'Installing java 11 jdk' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-sudo apt-get -y install default-jdk &&
+sudo apt-get -y install openjdk-11-jdk &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -184,10 +184,6 @@ echo '                                              ' &&
 echo 'Installing postgresql-11' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
-#sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
-#sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/lsb_release -cs-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' &&
-#sudo apt update &&
-#sudo apt-get -y install postgresql postgresql-contrib &&
 sudo apt install postgresql postgresql-contrib -y &&
 
 echo '----------------------------------------------' &&
@@ -231,16 +227,6 @@ echo 'Installing mailutils' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
 sudo apt install mailutils -y &&
-
-# hibernation on Ubuntu 18.04.4
-#grep swap /etc/fstab
-#sudo nano /etc/default/grub
-#sudo nano /etc/initramfs-tools/conf.d/resume
-#sudo nano /etc/default/grub
-#echo "RESUME=UUID=5c61874e-d6ea-460d-a8fc-4cf551489e6b" | sudo tee /etc/initramfs-tools/conf.d/resume
-#sudo update-initramfs -u -k all
-#sudo update-grub
-#sudo systemctl hibernate
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
@@ -294,31 +280,6 @@ echo '                                              ' &&
 echo '----------------------------------------------' &&
 sudo snap install shotcut --classic &&
 
-#echo '----------------------------------------------' &&
-#echo '                                              ' &&
-#echo 'Installing ShotWell (snap) (image editor)' &&
-#echo '                                              ' &&
-#echo '----------------------------------------------' &&
-#sudo snap install shotwell-adam --edge &&
-
-#error: The publisher of snap "shotwell-adam" has indicated that they do not
-#       consider this revision to be of production quality and that it is only
-#       meant for development or testing at this point. As a consequence this
-#       snap will not refresh automatically and may perform arbitrary system
-#       changes outside of the security sandbox snaps are generally confined to,
-#       which may put your system at risk.
-
-#       If you understand and want to proceed repeat the command including
-#       --devmode; if instead you want to install the snap forcing it into
-#       strict confinement repeat the command including --jailmode.
-
-echo '----------------------------------------------' &&
-echo '                                              ' &&
-echo 'Installing kolourpaint (an alternative for known paint from Windows' &&
-echo '                                              ' &&
-echo '----------------------------------------------' &&
-sudo apt-get -y install kolourpaint &&
-
 echo '----------------------------------------------' &&
 echo '                                              ' &&
 echo 'Installing Intellij-idea-community (snap)' &&
@@ -347,43 +308,12 @@ echo '                                              ' &&
 echo '----------------------------------------------' &&
 sudo apt-get -y install nethogs &&
 
-#echo '----------------------------------------------' &&
-#echo '                                              ' &&
-#echo 'Installing rvm (ruby version manager)' && (Too old, do not worth it)
-#echo '                                              ' &&
-#echo '----------------------------------------------' &&
-#sudo apt-get -y install rvm &&
-
 echo '----------------------------------------------' &&
 echo '                                              ' &&
-echo 'Installing Heroku' &&
-echo '                                              ' &&
-echo '----------------------------------------------' &&
-sudo snap install --classic heroku &&
-
-echo '----------------------------------------------' &&
-echo '                                              ' &&
-echo 'Installing useful libraries for frontend development (react-router-dom, react-dom, axios, react-leaflet, react-select, react-toastify)' &&
-echo '                                              ' &&
-echo '----------------------------------------------' &&
-npm install react-router-dom &&
-npm install @types/react-router-dom &&
-npm install axios &&
-npm install react react-dom leaflet &&
-npm install react-leaflet &&
-npm install -D @types/leaflet &&
-npm install react-select @types/react-select &&
-npm install --save react-toastify &&
-
-echo '----------------------------------------------' &&
-echo '                                              ' &&
-echo 'Installing useful libraries for mobile development with react native (expo-cli, react-native libraries, dayjs, intl)' &&
+echo 'Installing useful libraries for mobile development with react native (expo-cli)' &&
 echo '                                              ' &&
 echo '----------------------------------------------' &&
 sudo npm install --global expo-cli -y &&
-sudo expo install @react-navigation/stack @react-native-community/masked-view react-native-screens react-native-gesture-handler @react-navigation/native expo-app-loading @expo-google-fonts/open-sans expo-font -y &&
-sudo npm install dayjs --save -y &&
-sudo npm install intl -y &&
 
 echo '----------------------------------------------' &&
 echo '                                              ' &&
